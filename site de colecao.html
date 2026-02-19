@@ -1,0 +1,138 @@
+<!DOCTYPE html> <!--esse comando define que o documento usa HTML-->
+<html>
+    <head>
+
+        <title> Coleção de jogos na steam</title> <!--título que fica invisível no site (metadado)-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        
+        <style>
+
+            *{
+                margin: 0; 
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: Google Sans Code, sans-serif;
+                background-color: #0b0b0b;
+                color:#dfdfdf;
+            }
+
+            header {
+                background-color:#2a2c2b;
+                padding: 20px;
+                text-align: center;
+                border-bottom:#0b522e ;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+                color:#b9b9bd ;
+            }
+
+            .container {
+                padding: 40px 5%;
+            }
+
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+                gap: 25px;
+            }
+
+            .card {
+                background-color:#989398;
+                border-radius: 12px;
+                padding: 20px;
+            }
+
+            .card:hover {
+                transform: translateY(-5px);
+                border: 1px solid #4a9b3c;
+            }
+
+            .card img {
+                width: 100%;
+                border-radius: 8px;
+                margin-bottom: 15px;
+            }
+
+            .card h2 {
+                font-size: 1.2rem;
+                margin-bottom: 10px;
+            }
+        </style>
+     </head>     
+     <body> 
+        <header>
+            <h1> Meu pequeno acervo de jogos</h1>
+        </header>
+
+        <div class="container">
+            <div class="grid">
+                <div class="card">
+                    <img src="Imagens/dark hours prologue.jpg" alt="Dark Hours Prologue">
+                    <h2>Dark Hours Prologue</h2>
+                    <p> O jogo é uma porcaria, coisa mais sem nexo</p>
+                </div>
+
+                <div class="card">
+                    <img src="Imagens/DBD.jpg" alt="Dead By Daylight">
+                    <h2> Dead By Daylight</h2>
+                    <p> Jogo impossível de jogar, o assassino corre mais que homem quando ta traindo e vê a esposa chegando</p>
+                </div>
+
+                <div class="card">
+                    <img src="Imagens/demonologist.jpg" alt="The Demonologist">
+                    <h2> The Demonologist</h2>
+                    <p> Até que eu gostei do jogo. Tomei alguns sustos mas faltam alguns jumpscares melhores</p>
+                </div>
+
+                <div class="card">
+                    <img src="Imagens/it takes two.jpg" alt="It Takes Two">
+                    <h2> It Takes Two</h2>
+                    <p> Jogo super legal!! Esse sim é um jogo divertivo e interessante de se jogar</p>
+                </div>
+
+                <div class="card">
+                    <img src="Imagens/League of legends.jpg" alt="League of Legends">
+                    <h2>League of Legends</h2>
+                    <p> Não jogue... só não jogue</p>
+                </div>
+
+                <div class="card"> 
+                    <img src="Imagens/mimesis.jpg" alt="Mimesis">
+                    <h2> Mimesis </h2>
+                    <p>Jogo muito interessante, me confundi até comigo mesmo</p>
+                </div>
+
+                <div class="card">
+                    <img src="Imagens/Overcooked.jpg" alt="Overcooked">
+                    <h2>Overcooked</h2>
+                    <p> Só jogue caso queria se desfazer de alguma amizade que não te agregue... vai por mim, esse jogo vai ajudar</p>
+                </div>
+
+                <div class="card">
+                    <img src="Imagens/peak.jpg" alt="Peak">
+                    <h2> Peak</h2>
+                    <p> Um jogo de escalada, nada demais</p>
+                </div>
+
+                <div class="card">
+                    <img src="Imagens/reanimal.jpg" alt="Reanimal">
+                    <h2>Reanimal</h2>
+                    <p> Jogo interessante pra quem gostou de little nighmares I,II e III</p>
+                </div>
+
+                <div class="card">
+                    <img src="Imagens/roadside research.jpg" alt="Roadside Research">
+                    <h2>Roadside Research</h2>
+                    <p>Jogo bem legal, divertido mas cansa rápido</p>    
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
