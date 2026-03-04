@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Material de Estudo - Portas Lógicas</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 50%, #0f3460 100%);
+            background-attachment: fixed;
+            color: #333;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, #e94560 0%, #f39c12 100%);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        header h2 {
+            font-size: 1.8em;
+            font-weight: 300;
+            opacity: 0.95;
+        }
+
+        section {
+            padding: 40px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        h2 {
+            color: #e94560;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            border-left: 4px solid #f39c12;
+            padding-left: 15px;
+        }
+
+        p {
+            line-height: 1.8;
+            color: #555;
+        }
+
+        ul {
+            margin-left: 30px;
+            margin-top: 15px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+        }
+
+        th {
+            background: linear-gradient(135deg, #e94560 0%, #f39c12 100%);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+            transition: background-color 0.3s ease;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .box {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            border-top: 4px solid #f39c12;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        form {
+            background-color: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-top: 4px solid #f39c12;
+        }
+
+        form p {
+            margin: 20px 0 15px 0;
+            font-weight: 500;
+            color: #333;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+            cursor: pointer;
+            accent-color: #e94560;
+        }
+
+        input[type="radio"] + label,
+        form label {
+            cursor: pointer;
+            color: #555;
+        }
+
+        button {
+            background: linear-gradient(135deg, #e94560 0%, #f39c12 100%);
+            color: white;
+            padding: 13px 40px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3);
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(233, 69, 96, 0.4);
+        }
+
+        button:active {
+            transform: translateY(-1px);
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Material de Estudo Digital</h1>
+    <h2>Portas Lógicas</h2>
+</header>
+
+<section>
+
+    <div class="box">
+        <h2>O que são Portas Lógicas?</h2>
+        <p>
+            Portas lógicas são componentes fundamentais da eletrônica digital.
+            Elas realizam operações booleanas com base em valores binários (0 e 1).
+            São utilizadas em circuitos digitais, processadores e sistemas computacionais.
+        </p>
+    </div>
+
+    <div class="box">
+        <h2> Porta AND (E)</h2>
+        <p>Retorna 1 somente quando todas as entradas forem 1.</p>
+
+        <table>
+            <tr>
+                <th>A</th>
+                <th>B</th>
+                <th>Saída</th>
+            </tr>
+            <tr><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td>1</td><td>0</td><td>0</td></tr>
+            <tr><td>1</td><td>1</td><td>1</td></tr>
+        </table>
+    </div>
+
+    <div class="box">
+        <h2>Porta OR (OU)</h2>
+        <p>Retorna 1 quando pelo menos uma entrada for 1.</p>
+
+        <table>
+            <tr>
+                <th>A</th>
+                <th>B</th>
+                <th>Saída</th>
+            </tr>
+            <tr><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>0</td><td>1</td><td>1</td></tr>
+            <tr><td>1</td><td>0</td><td>1</td></tr>
+            <tr><td>1</td><td>1</td><td>1</td></tr>
+        </table>
+    </div>
+
+    <div class="box">
+        <h2>Porta NOT (NÃO)</h2>
+        <p>Inverte o valor da entrada.</p>
+
+        <table>
+            <tr>
+                <th>A</th>
+                <th>Saída</th>
+            </tr>
+            <tr><td>0</td><td>1</td></tr>
+            <tr><td>1</td><td>0</td></tr>
+        </table>
+    </div>
+
+    <div class="box">
+        <h2>Aplicação Prática</h2>
+        <p>
+            As portas lógicas são utilizadas em:
+        </p>
+        <ul>
+            <li>Processadores</li>
+            <li>Memórias</li>
+            <li>Sistemas embarcados</li>
+            <li>Controle de acesso digital</li>
+        </ul>
+    </div>
+
+    <h2>Avaliação de Aprendizado</h2>
+
+    <form>
+        <p><strong>1) A porta AND retorna 1 quando:</strong></p>
+        <input type="radio" name="q1"> Pelo menos uma entrada é 1<br>
+        <input type="radio" name="q1"> Todas as entradas são 1<br>
+        <input type="radio" name="q1"> Todas são 0<br><br>
+
+        <p><strong>2) A porta NOT faz o quê?</strong></p>
+        <input type="radio" name="q2"> Soma valores<br>
+        <input type="radio" name="q2"> Inverte o valor da entrada<br>
+        <input type="radio" name="q2"> Multiplica valores<br><br>
+
+        <button type="submit">Enviar Respostas</button>
+    </form>
+
+</section>
+
+</body>
+</html>
