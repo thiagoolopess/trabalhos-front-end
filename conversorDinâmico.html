@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title>Conversor de Temperatura</title>
+
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .painel {
+            background-color: rgba(255, 255, 255, 0.95);
+            width: 350px;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(5px);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #222;
+            font-size: 28px;
+        }
+        .campo {
+            margin-bottom: 22px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #444;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #dcdcdc;
+            border-radius: 10px;
+            font-size: 16px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: #4facfe;
+
+            box-shadow: 0 0 8px rgba(79, 172, 254, 0.4);
+        }
+        </style>
+    </head>
+
+    <body>
+
+    <div class="painel">
+
+        <h1>Conversor de Temperatura</h1>
+
+        <div class="campo">
+            <label>Celsius (°C)</label>
+            <input type="number" id="grausCelsius" step="0.1">
+        </div>
+
+        <div class="campo">
+            <label>Fahrenheit (°F)</label>
+            <input type="number" id="grausFahrenheit" step="0.1">
+        </div>
+
+    </div>
+
+    <script>
+
+        let campoCelsius = document.getElementById("grausCelsius");
+        let campoFahrenheit = document.getElementById("grausFahrenheit");
+
+        campoCelsius.addEventListener("input",function(){
+
+            let valorCelsius = parseFloat(campoCelsius.value);
+
+            if (isNaN(valorCelsius)) {
+                campoFahrenheit.value = "";
+                return;
+            }
+
+            let resultado = (valorCelsius * 9 / 5) + 32;
+
+            campoFahrenheit.value = resultado.toFixed(2);
+        });
+
+        campoFahrenheit.addEventListener("input", function () {
+
+            let valorFahrenheit = parseFloat(campoFahrenheit.value);
+
+            if (isNaN(valorFahrenheit)) {
+                campoCelsius.value = "";
+                return;
+            }
+
+            let resultado = (valorFahrenheit - 32) * 5 / 9;
+
+            campoCelsius.value = resultado.toFixed(2);
+        });
+
+    </script>
+
+    </body>
+</html>

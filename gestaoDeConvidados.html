@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Infinity Bank - Lista VIP</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:Arial,sans-serif;
+            background:linear-gradient(120deg,#111827,#1e3a8a);
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            padding:30px;
+        }
+
+        .painel{
+            width:500px;
+            background-color:#ffffff;
+            border-radius:24px;
+            padding:35px;
+            box-shadow:0 15px 35px rgba(0,0,0,0.2);
+
+            overflow:hidden;
+        }
+
+        h1{
+            text-align:center;
+            color:#1e3a8a;
+            margin-bottom:28px;
+            font-size:30px;
+        }
+
+        .topo{
+            display:flex;
+            gap:12px;
+            margin-bottom:25px;
+        }
+
+        input{
+            flex:1;
+            padding:14px;
+            border:none;
+            border-radius:14px;
+            background-color:#f1f5f9;
+            font-size:15px;
+            outline:none;
+            transition:0.3s;
+        }
+
+        input:focus{
+            background-color:#e2e8f0;
+            box-shadow:0 0 10px rgba(30,58,138,0.15);
+        }
+
+        button{
+            border:none;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .adicionar{
+            padding:14px 18px;
+            border-radius:14px;
+            background:linear-gradient(135deg,#2563eb,#1d4ed8);
+            color:white;
+            font-weight:bold;
+        }
+
+        .adicionar:hover{
+            transform:translateY(-2px);
+        }
+
+        ul{
+            list-style:none;
+        }
+
+        li{
+            background-color:#f8fafc;
+            padding:16px;
+            border-radius:16px;
+            margin-bottom:14px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            border:1px solid #e2e8f0;
+        }
+
+        .nome{
+            color:#1e293b;
+            font-weight:bold;
+        }
+
+        .chegou{
+            text-decoration:line-through;
+            opacity:0.6;
+        }
+
+        .acoes{
+            display:flex;
+            gap:8px;
+        }
+
+        .acoes button{
+            padding:9px 12px;
+            border-radius:10px;
+            color:white;
+            font-size:13px;
+            font-weight:bold;
+        }
+
+        .feito{
+            background-color:#16a34a;
+        }
+
+        .editar{
+            background-color:#f59e0b;
+        }
+
+        .remover{
+            background-color:#dc2626;
+        }
+
+        .feito:hover,
+        .editar:hover,
+        .remover:hover{
+            opacity:0.85;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="painel">
+
+        <h1>Convidados VIP</h1>
+
+        <div class="topo">
+
+            <input
+            type="text"
+            id="nomeConvidado"
+            placeholder="Digite o nome">
+
+            <button class="adicionar" id="salvar">
+                Adicionar
+            </button>
+
+        </div>
+
+        <ul id="lista"></ul>
+
+    </div>
+
+    <script>
+
+        let convidados = [];
+
+        let salvar = document.getElementById("salvar");
+
+        salvar.addEventListener("click",function(){
+
+            let nomeConvidado =
+                document.getElementById("nomeConvidado");
+
+            let texto = nomeConvidado.value.trim();
+
+            if(texto === ""){
+                return;
+            }
+
+            convidados.push(texto);
+
+            atualizarLista();
+
+            nomeConvidado.value = "";
+        });
+
+        function atualizarLista(){
+
+            let lista = document.getElementById("lista");
+
+            lista.innerHTML = "";
+
+            convidados.forEach(function(item,posicao){
+
+                let linha = document.createElement("li");
+
+                let nome = document.createElement("span");
+
+                nome.innerText = item;
+
+                nome.classList.add("nome");
+
+                let botoes = document.createElement("div");
+
+                botoes.classList.add("acoes");
+
+                let concluir = document.createElement("button");
+
+                concluir.innerText = "Concluir";
+
+                concluir.classList.add("feito");
+
+                concluir.addEventListener("click",function(){
+
+                    nome.classList.toggle("chegou");
+
+                });
+
+                let editar = document.createElement("button");
+
+                editar.innerText = "Editar";
+
+                editar.classList.add("editar");
+
+                editar.addEventListener("click",function(){
+
+                    let novoNome =
+                        prompt("Editar convidado:",item);
+
+                    if(novoNome !== null &&
+                    novoNome.trim() !== ""){
+
+                        convidados[posicao] =
+                        novoNome.trim();
+
+                        atualizarLista();
+                    }
+
+                });
+
+                let excluir = document.createElement("button");
+
+                excluir.innerText = "Excluir";
+
+                excluir.classList.add("remover");
+
+                excluir.addEventListener("click",function(){
+
+                    convidados.splice(posicao,1);
+
+                    atualizarLista();
+
+                });
+
+                botoes.appendChild(concluir);
+
+                botoes.appendChild(editar);
+
+                botoes.appendChild(excluir);
+
+                linha.appendChild(nome);
+
+                linha.appendChild(botoes);
+
+                lista.appendChild(linha);
+
+            });
+
+        }
+
+    </script>
+
+</body>
+
+</html>

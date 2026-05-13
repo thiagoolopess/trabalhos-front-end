@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Média Escolar</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:Arial, sans-serif;
+            background:linear-gradient(135deg,#667eea,#764ba2);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+
+        .painel{
+            background-color:white;
+            width:380px;
+            padding:35px;
+            border-radius:18px;
+            box-shadow:0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        h1{
+            text-align:center;
+            margin-bottom:25px;
+            color:#333;
+        }
+
+        .campo{
+            margin-bottom:18px;
+        }
+
+        label{
+            display:block;
+            margin-bottom:8px;
+            color:#555;
+            font-weight:bold;
+        }
+
+        input{
+            width:100%;
+            padding:12px;
+            border:1px solid #ccc;
+            border-radius:10px;
+            font-size:15px;
+            outline:none;
+            transition:0.3s;
+        }
+
+        input:focus{
+            border-color:#667eea;
+            box-shadow:0 0 8px rgba(102,126,234,0.4);
+        }
+
+        button{
+            width:100%;
+            padding:13px;
+            border:none;
+            border-radius:10px;
+            background-color:#667eea;
+            color:white;
+            font-size:16px;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        button:hover{
+            background-color:#5568d8;
+        }
+
+        #resultado{
+            margin-top:25px;
+            text-align:center;
+            font-size:18px;
+            font-weight:bold;
+            line-height:28px;
+        }
+
+        .aprovado{
+            color:#1d4ed8;
+        }
+
+        .exame{
+            color:#15803d;
+        }
+
+        .reprovado{
+            color:#dc2626;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="painel">
+
+        <h1>Média Escolar</h1>
+
+        <div class="campo">
+
+            <label>Nome do aluno</label>
+
+            <input type="text" id="nomeAluno">
+
+        </div>
+
+        <div class="campo">
+
+            <label>Primeira nota</label>
+
+            <input type="number" id="notaUm">
+
+        </div>
+
+        <div class="campo">
+
+            <label>Segunda nota</label>
+
+            <input type="number" id="notaDois">
+
+        </div>
+
+        <div class="campo">
+
+            <label>Terceira nota</label>
+
+            <input type="number" id="notaTres">
+
+        </div>
+
+        <button id="botao">
+            Calcular Média
+        </button>
+
+        <div id="resultado"></div>
+
+    </div>
+
+    <script>
+
+        let botao = document.getElementById("botao");
+
+        botao.addEventListener("click", function(){
+
+            let aluno = document.getElementById("nomeAluno").value;
+
+            let valorUm = Number(document.getElementById("notaUm").value);
+
+            let valorDois = Number(document.getElementById("notaDois").value);
+
+            let valorTres = Number(document.getElementById("notaTres").value);
+
+            let resultado = document.getElementById("resultado");
+
+            let mediaFinal = (valorUm + valorDois + valorTres) / 3;
+
+            if(mediaFinal >= 7){
+
+                resultado.innerHTML =
+                    aluno + "<br>Média: " +
+                    mediaFinal.toFixed(2) +
+                    "<br>Aprovado";
+
+                resultado.className = "aprovado";
+            }
+
+            else if(mediaFinal >= 4){
+
+                let falta = 10 - mediaFinal;
+
+                resultado.innerHTML =
+                    aluno + "<br>Média: " +
+                    mediaFinal.toFixed(2) +
+                    "<br>Exame<br>Faltam " +
+                    falta.toFixed(2) +
+                    " pontos para 10";
+
+                resultado.className = "exame";
+            }
+
+            else{
+
+                resultado.innerHTML =
+                    aluno + "<br>Média: " +
+                    mediaFinal.toFixed(2) +
+                    "<br>Reprovado";
+
+                resultado.className = "reprovado";
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>

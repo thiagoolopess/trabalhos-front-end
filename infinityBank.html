@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Infinity Bank</title>
+
+    <style>
+
+    *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    }   
+
+    body{
+    font-family:Arial,sans-serif;
+    background-color:#0f172a;
+    background-image:
+    radial-gradient(circle at top left,#2563eb33,transparent 35%),
+    radial-gradient(circle at bottom right,#7c3aed33,transparent 35%);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    }
+
+    .cartao{
+    width:430px;
+    padding:35px;
+    border-radius:22px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(14px);
+    border:1px solid rgba(255,255,255,0.15);
+    box-shadow:0 10px 30px rgba(0,0,0,0.35);
+    }
+
+    h1{
+    text-align:center;
+    margin-bottom:28px;
+    color:white;
+    font-size:30px;
+    letter-spacing:1px;
+    }
+
+    .bloco{
+    margin-bottom:22px;
+    }
+
+    label{
+    display:block;
+    margin-bottom:8px;
+    color:#dbeafe;
+    font-size:14px;
+    font-weight:bold;
+    }
+
+    input,select{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:14px;
+    background-color:rgba(255,255,255,0.12);
+    color:white;
+    font-size:15px;
+    outline:none;
+    transition:0.3s;
+    }
+
+    input::placeholder{
+    color:#cbd5e1;
+    }
+
+    input:focus,select:focus{
+    background-color:rgba(255,255,255,0.18);
+    box-shadow:0 0 12px rgba(96,165,250,0.35);
+    }   
+
+    button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:14px;
+    background:linear-gradient(135deg,#3b82f6,#7c3aed);
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+    }
+
+    button:hover{
+    transform:translateY(-2px);
+    opacity:0.95;
+    }   
+
+    #resumo{
+    margin-top:28px;
+    padding:20px;
+    border-radius:16px;
+    background-color:rgba(255,255,255,0.1);
+    color:#f8fafc;
+    line-height:32px;
+    font-weight:bold;
+    border:1px solid rgba(255,255,255,0.12);
+    }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="cartao">
+
+        <h1>Infinity Bank</h1>
+
+        <div class="bloco">
+
+            <label>Bandeira</label>
+
+            <select id="bandeira">
+
+                <option value="visa">Visa</option>
+
+                <option value="master">Master</option>
+
+                <option value="elo">Elo</option>
+
+            </select>
+
+        </div>
+
+        <div class="bloco">
+
+            <label>Valor da venda</label>
+
+            <input type="number" id="valorCompra">
+
+        </div>
+
+        <div class="bloco">
+
+            <label>Quantidade de parcelas</label>
+
+            <input type="number" id="quantidadeParcelas">
+
+        </div>
+
+        <button id="simular">
+            Simular
+        </button>
+
+        <div id="resumo"></div>
+
+    </div>
+
+    <script>
+
+        let simular = document.getElementById("simular");
+
+        simular.addEventListener("click",function(){
+
+            let bandeira = document.getElementById("bandeira").value;
+
+            let valorCompra = Number(document.getElementById("valorCompra").value);
+
+            let quantidadeParcelas =
+                Number(document.getElementById("quantidadeParcelas").value);
+
+            let resumo = document.getElementById("resumo");
+
+            let taxa = 0;
+
+            switch(bandeira){
+
+                case "visa":
+                    taxa = valorCompra * 0.02;
+                break;
+
+                case "master":
+                    taxa = valorCompra * 0.0185;
+                break;
+
+                case "elo":
+                    taxa = valorCompra * 0.03;
+                break;
+
+            }
+
+            let juros = valorCompra * (0.015 * quantidadeParcelas);
+
+            let mensalidade = quantidadeParcelas * 12.50;
+
+            let total =
+                valorCompra +
+                taxa +
+                juros +
+                mensalidade;
+
+            let parcela = total / quantidadeParcelas;
+
+            resumo.innerHTML =
+                "Taxa da bandeira: R$ " +
+                taxa.toFixed(2) +
+
+                "<br>Juros: R$ " +
+                juros.toFixed(2) +
+
+                "<br>Taxa mensal: R$ " +
+                mensalidade.toFixed(2) +
+
+                "<br>Total da venda: R$ " +
+                total.toFixed(2) +
+
+                "<br>Valor por parcela: R$ " +
+                parcela.toFixed(2);
+
+        });
+
+    </script>
+
+</body>
+
+</html>
